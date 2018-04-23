@@ -1,0 +1,119 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: url(../assets/wikipedia_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+
+noscript {
+  text-align: center;
+}
+
+noscript h2 {
+  width: 70%;
+  height: 20%;
+  background-color: red;
+  color: white;
+  margin: 0 auto;
+}
+
+nav {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25px;
+ }
+
+article {
+  width: 80%;
+  background: rgba(50, 50, 50, 0.4);
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav ul {
+  width: 90%;
+  padding: 0;
+  color: white;
+  text-align: left;
+}
+
+#tab2, #tab3 {
+  position: relative;
+  margin-left: -10px;
+  padding-left: 10px;
+}
+
+
+.on {
+    background: #ffffff;
+    display: inline-block;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    vertical-align: top;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+
+    }
+
+.off {
+    background: #888888;
+    display: inline-block;
+    padding: 5px 5px 0 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    vertical-align: top;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    width: 150px;
+    }
+
+
+article {
+  background: #ffffff;
+  min-height: 200px;
+  padding-top: 0;
+  color: black;
+  }
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  margin-top: 0;
+}
