@@ -119,3 +119,8 @@ h1 {
   bottom: 50px;
   right: 50px;
 }
+
+#theForm {
+  width: 20%;
+  display: block;
+}

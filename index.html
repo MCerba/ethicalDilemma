@@ -25,16 +25,30 @@
 <article >
 
   <section  id = "top">
-    <h1>TAB1</h1>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
-    <p>bla blabla bla</p>
+    <form id="theForm" action="http://sonic.dawsoncollege.qc.ca/cgi-bin/reflect.pl"
+  method="get" name="theForm" novalidate>
+  <fieldset><legend>Fill </legend>
+  <p>Please provide the following information to complete you registration.</p>
+  <p id="errorMessage">The data entered is not all valid. Please correct it.</p>
+
+
+  <label for="title">Wikipwdia article:</label>
+  <input type="text" name="title" id="title" required="">
+
+  <label for="searchingDate">Birth date</label>
+  <input type="date" name="searchingDate" id="searchingDate" placeholder="mm/dd/yy">
+
+  <label for="language">Country (Required)</label>
+  <select name="language" id="language" required="">
+  <option value="English">English</option>
+  <option value="Franch">Franch</option>
+  </select>
+  <input type="submit" value="Register" id="submit">
+  </fieldset>
+  </form>
+<section id="topResults">
+  
+</section>
 
 
 
