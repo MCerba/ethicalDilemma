@@ -27,7 +27,6 @@ html {
   font-family: Arial, sans-serif;
 }
 
-
 noscript {
   text-align: center;
 }
@@ -45,11 +44,11 @@ nav {
   margin: 0 auto;
   text-align: center;
   margin-top: 25px;
- }
+}
 
 article {
   width: 80%;
-  background: rgba(50, 50, 50, 0.4);
+  background: rgba(240, 240, 240, 0.95);
   margin: 0 auto;
   text-align: center;
   border-top-right-radius: 10px;
@@ -62,57 +61,48 @@ nav ul {
   padding: 0;
   color: white;
   text-align: left;
+  height: 50px;
 }
 
-#tab2, #tab3 {
+#tab2,
+#tab3 {
   position: relative;
   margin-left: -10px;
   padding-left: 10px;
 }
-ul {
+
+.on {
+  background: #fff;
+  display: inline-block;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  vertical-align: top;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 1;
   height: 50px;
 }
 
-.on {
-    background: #ffffff;
-    display: inline-block;
-    padding: 15px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    vertical-align: top;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    height: 50px;
-    }
-
 .off {
-    background: #888888;
-    display: inline-block;
-    padding: 15px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    vertical-align: top;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
+  background: #888;
+  display: inline-block;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  vertical-align: top;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 0;
 }
 
 nav ul li {
-    display: inline-block;
-    width: 150px;
-    height: 45px;
-    }
-
-
-article {
-  background: #ffffff;
-  min-height: 200px;
-  padding-top: 0;
-  color: black;
-  }
+  display: inline-block;
+  width: 150px;
+  height: 45px;
+}
 
 footer {
   margin: 15px auto;
@@ -122,4 +112,10 @@ footer {
 
 h1 {
   margin-top: 0;
+}
+
+#up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
 }

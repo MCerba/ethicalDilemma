@@ -4,24 +4,27 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="styles/normalize.css">
 <link rel="stylesheet" href="styles/main.css">
-
+<script src="JS/utilities.js"></script>
 <script src="JS/main.js"></script>
 <title>WikiChart</title>
 </head>
 <body class="bg">
-
+  <a  id = "up" href="#navul">
+    <img src="assets/up.png" alt="up arrow" >
+  </a>
   <nav>
-    <ul>
-      <li class="off" id = "tab1"><a href="#tab1"  >TAB1</a></li>
-      <li class="on" id = "tab2"><a href="#tab2" >TAB2</a></li>
-      <li class="off" id = "tab3"><a href="#tab3" >TAB3</a></li>
+    <ul id="navul">
+      <li class="on" id = "topTab"><a href="#tab1"  >Top Articles</a></li>
+      <li class="off" id = "savedTab"><a href="#tab2" >Saved Articles</a></li>
+      <li class="off" id = "activityTab"><a href="#tab3" >Activity Chart</a></li>
     </ul>
   </nav>
   <noscript >
     <h2>To display proprly this page you should turn on Java Script</h2>
   </noscript>
 <article >
-  <section  id = "tab1">
+
+  <section  id = "top">
     <h1>TAB1</h1>
     <p>bla blabla bla</p>
     <p>bla blabla bla</p>
@@ -36,7 +39,7 @@
 
 
   </section>
-  <section  id = "tab2">
+  <section  id = "saved">
     <h1>TAB2</h1>
     <p>bla blabla bla</p>
     <p>bla blabla bla</p>
@@ -50,7 +53,7 @@
 
 
   </section>
-  <section  id = "tab3">
+  <section  id = "activity">
     <h1>TAB3</h1>
     <p>bla blabla bla</p>
     <p>bla blabla bla</p>
