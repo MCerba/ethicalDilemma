@@ -25,29 +25,33 @@
 <article >
 
   <section  id = "top">
-    <form id="theForm" action="http://sonic.dawsoncollege.qc.ca/cgi-bin/reflect.pl"
-  method="get" name="theForm" novalidate>
+    <form id="theTopForm" action="http://sonic.dawsoncollege.qc.ca/cgi-bin/reflect.pl"
+  method="get" name="theTopForm" novalidate>
   <fieldset><legend>Fill </legend>
-  <p>Please provide the following information to complete you registration.</p>
-  <p id="errorMessage">The data entered is not all valid. Please correct it.</p>
-
-
-  <label for="title">Wikipwdia article:</label>
-  <input type="text" name="title" id="title" required="">
-
-  <label for="searchingDate">Birth date</label>
+  <p id="topInfo">Please provide the following information to complete you registration.</p>
+<br>
+  <label for="searchingDate">Date</label>
   <input type="date" name="searchingDate" id="searchingDate" placeholder="mm/dd/yy">
 
-  <label for="language">Country (Required)</label>
+  <label for="language">Language</label>
   <select name="language" id="language" required="">
   <option value="English">English</option>
-  <option value="Franch">Franch</option>
+  <option value="French">French</option>
   </select>
-  <input type="submit" value="Register" id="submit">
+  <br><br>
+  <label for="numberOfarticles">Articles to show</label>
+  <select name="numberOfarticles" id="numberOfarticles" required="">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  </select>
+  <br>
+  <input type="submit" value="Show" id="submitBtn">
+  <input type="button" value="Save" id="saveBtn">
   </fieldset>
   </form>
 <section id="topResults">
-  
+
 </section>
 
 

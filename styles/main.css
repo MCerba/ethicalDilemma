@@ -120,7 +120,52 @@ h1 {
   right: 50px;
 }
 
-#theForm {
+#theTopForm {
   width: 20%;
+  min-height: 300px;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#topResults {
+  width: 75%;
+  display: inline-block;
+  border: solid black 1px;
+  min-height: 800px;
+}
+
+label {
   display: block;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 30px;
+  width: 80%;
+  float: left;
+}
+
+select {
+  float: left;
+  font-size: 12px;
+  padding: 4px 2px;
+  width: 80%;
+  margin: 2px 0 20px 20px;
+}
+
+input {
+  position: relative;
+  font-weight: bold;
+  float: left;
+  font-size: 12px;
+  padding: 4px 2px;
+  width: 80%;
+  margin: 2px 0 20px 20px;
+}
+
+#topInfo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5c5c3d;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #bfbd9f;
+  padding-bottom: 10px;
 }
