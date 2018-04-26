@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="styles/normalize.css">
 <link rel="stylesheet" href="styles/main.css">
-<script src="JS/utilities.js"></script>
-<script src="JS/main.js"></script>
+<script src="js/utilities.js"></script>
+<script src="js/main.js"></script>
 <title>WikiChart</title>
 </head>
 <body class="bg">
@@ -25,11 +25,14 @@
 <article >
 
   <section  id = "top">
-    <form id="theTopForm" action="http://sonic.dawsoncollege.qc.ca/cgi-bin/reflect.pl"
+    <form id="theTopForm"
   method="get" name="theTopForm" novalidate>
   <fieldset><legend>Fill </legend>
   <p id="topInfo">Please provide the following information to complete you registration.</p>
-<br>
+  <br>
+  <div id="errorContainer">
+
+  </div>
   <label for="searchingDate">Date</label>
   <input type="date" name="searchingDate" id="searchingDate" placeholder="mm/dd/yy">
 
@@ -42,11 +45,11 @@
   <label for="numberOfarticles">Articles to show</label>
   <select name="numberOfarticles" id="numberOfarticles" required="">
   <option value="5">5</option>
-  <option value="10">10</option>
+  <option value="10" selected="selected" >10</option>
   <option value="20">20</option>
   </select>
   <br>
-  <input type="submit" value="Show" id="submitBtn">
+  <input type="sub" value="Show" id="submitBtn">
   <input type="button" value="Save" id="saveBtn">
   </fieldset>
   </form>
