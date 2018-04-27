@@ -2,7 +2,8 @@
 "use strict"
 var wiki = {};
 var regex = {
-  isLikeDate: /^\d\d\d\d-\d*\d-\d*\d$/
+  isLikeDate: /^\d\d\d\d-\d*\d-\d*\d$/,
+  isUnecpectedArticle: /^Special:.*/
 };
 
 if (!document.footer) {
@@ -146,6 +147,7 @@ function getValue(id) {
   }
 }
 
+//return Yesturday Date in string format yyyy-mm-dd
 function yesterday() {
   var today = new Date();
   var yesterday =  today.setDate(today.getDate() - 1);
@@ -165,9 +167,8 @@ function yesterday() {
   yesterday = yyyy + "-" + mm + "-" + dd;
   return yesterday;
 }
-
+//display mesage and Insrt msg in DOM
 function displayMsg(msg) {
-
   var err = document.getElementById("errorContainer");
   while (err.firstChild) {
     err.removeChild(err.firstChild);
@@ -175,12 +176,11 @@ function displayMsg(msg) {
   var p = document.createElement("p");
   p.textContent = msg;
   err.appendChild(p);
-
 }
 
 
 
-
+//validate all form Data
 function validateAllData(displayMsg){
   var allDataIsValid = true;
   if (!getValidDate(getValue("searchingDate"))){
@@ -228,9 +228,33 @@ function requestPreprocessing() {
 
 }
 
-function displayResults(content){
-  console.log(content);
+function validateAritcle(article) {
+  if (article.article === "Main_Page"  ||
+  regex.isUnecpectedArticle.test(article.article)){
+    return false;
+  } else {
+    return true;
+  }
 }
+
+
+function displayResults(content){
+  var topArticlesJson = JSON.parse(content);
+  console.log(topArticlesJson.items[0].articles[0]);
+  wiki.articlesToDisplay = [];
+  var count = 0;
+  while (wiki.articlesToDisplay.length < getValue("numberOfarticles")){
+    if (validateAritcle(topArticlesJson.items[0].articles[count])){
+      wiki.articlesToDisplay.push(topArticlesJson.items[0].articles[count])
+    }
+    count++;
+    if (count === 999){
+      break;
+    }
+
+  }
+}
+
 /**
  * Running ofter DOM was loaded
  */
