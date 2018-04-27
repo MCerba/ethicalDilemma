@@ -209,25 +209,32 @@ function requestPreprocessing() {
     return;
   }
   var baseURL = "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/"
-  if (getValue("language") === "English") {
-    var values = getValue("searchingDate").split("-").map(function (i) {
-      return parseInt(i);
-    });
-    if(values[1] < 10) {
-      values[1] = "0" + values[1]
-    }
-
-    if(values[2] < 10) {
-      values[2] = "0" + values[2]
-    }
-    var formatDate = values[0] + "/" + values[1] + "/" + values[2];
-    baseURL = baseURL + "en.wikipedia.org/all-access/" + formatDate;
-    sendRequest(baseURL, displayResults);
-    console.log(baseURL);
+  var values = getValue("searchingDate").split("-").map(function (i) {
+    return parseInt(i);
+  });
+  if(values[1] < 10) {
+    values[1] = "0" + values[1]
   }
 
-}
+  if(values[2] < 10) {
+    values[2] = "0" + values[2]
+  }
+  var formatDate = values[0] + "/" + values[1] + "/" + values[2];
+  if (getValue("language") === "English"){
+    baseURL = baseURL + "en.wikipedia.org/all-access/" + formatDate;
+  } else {
+    baseURL = baseURL + "fr.wikipedia.org/all-access/" + formatDate;
+  }
+  sendRequest(baseURL, displayResults);
+  console.log(baseURL);
 
+
+}
+/**
+ * This function validate article.
+ * @param {article}  - article in JSON format
+ * @returns {boolean}  - false  if article title is "Main_Page" or starts from "Special:"
+ */
 function validateAritcle(article) {
   if (article.article === "Main_Page"  ||
   regex.isUnecpectedArticle.test(article.article)){
@@ -235,6 +242,19 @@ function validateAritcle(article) {
   } else {
     return true;
   }
+}
+
+/**
+ * This function display article.
+ * @param {article}  - article in JSON format
+ */
+function displayArticle(article){
+  var articleJson = JSON.parse(article);
+  console.log(articleJson.thumbnail.source   );
+  var p = document.createElement("p");
+  p.innerHTML  = articleJson.content_urls.desktop.page   ;
+  wiki.topResultsSection.appendChild(p);
+
 }
 
 
@@ -253,6 +273,8 @@ function displayResults(content){
     }
 
   }
+  var url = "https://en.wikipedia.org/api/rest_v1/page/summary/africa?redirect=false";
+  sendRequest(url, displayArticle);
 }
 
 /**
@@ -266,6 +288,7 @@ U.ready(function() {
   wiki.topSection = document.getElementById("top");
   wiki.savedSection = document.getElementById("saved");
   wiki.activitySection = document.getElementById("activity");
+  wiki.topResultsSection = document.getElementById("topResults");
 
   wiki.ul = document.getElementById("navul");
   wiki.showBtn = document.getElementById("submitBtn");
