@@ -56,13 +56,13 @@ function tabswap (e) {
   }
 }
 
-function sendRequest(url, callback) {
+function sendRequest(url, callback, paramForCallback) {
   var req = new XMLHttpRequest();
   req.open("GET", url, true);
   U.addHandler(req, "load", function() {
     console.log(req.status);
     if (req.status < 400) {
-      callback(req.responseText);
+      callback(req.responseText, paramForCallback);
     }
   });
   req.send(null);
@@ -248,12 +248,34 @@ function validateAritcle(article) {
  * This function display article.
  * @param {article}  - article in JSON format
  */
-function displayArticle(article){
+function displayArticle(article, nunberOfVisits){
+  console.log(article);
+  var currentArticle = document.createElement("article");
+  currentArticle.setAttribute("id", "currentArticle" );
   var articleJson = JSON.parse(article);
-  console.log(articleJson.thumbnail.source   );
-  var p = document.createElement("p");
-  p.innerHTML  = articleJson.content_urls.desktop.page   ;
-  wiki.topResultsSection.appendChild(p);
+
+  var extract = document.createElement("p");
+  extract.textContent = articleJson.extract;
+
+  var visites = document.createElement("p");
+  visites.textContent = "NUMBER OF VISITES: " + nunberOfVisits;
+  visites.setAttribute("id", "visites");
+
+  var img = document.createElement("img");
+  img.setAttribute("width", articleJson.thumbnail.width / 2 );
+  img.setAttribute("src", articleJson.thumbnail.source );
+  img.setAttribute("alt", articleJson.title );
+
+  var title = document.createElement("a");
+  title.textContent = articleJson.title;
+  title.setAttribute("href", articleJson.content_urls.desktop.page );
+  title.setAttribute("id", "articleTitle" );
+
+  currentArticle.appendChild(img);
+  currentArticle.appendChild(title);
+  currentArticle.appendChild(visites);
+  currentArticle.appendChild(extract);
+  wiki.topResultsSection.appendChild(currentArticle);
 
 }
 
@@ -273,8 +295,13 @@ function displayResults(content){
     }
 
   }
-  var url = "https://en.wikipedia.org/api/rest_v1/page/summary/africa?redirect=false";
-  sendRequest(url, displayArticle);
+  wiki.articlesToDisplay.forEach(function(item) {
+    var urlBase = "https://en.wikipedia.org/api/rest_v1/page/summary/";
+    sendRequest(urlBase + item.article + "?redirect=false", displayArticle, item.views);
+
+
+  })
+
 }
 
 /**
